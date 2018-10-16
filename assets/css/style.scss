@@ -4,6 +4,17 @@
 @import 'jekyll-theme-leap-day';
 
 #banner {
+   .bibliotecas {
+      position:fixed;
+      left:50%;
+      margin-left:80px;
+      padding: 10px 12px;
+      margin-top: 6px;
+      line-height:14px;
+      font-size:14px;
+      background-color: #FFE788;
+    }
+    
 .oficina {
    position:fixed;
    left:50%;

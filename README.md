@@ -12,28 +12,6 @@ O Braço Robótico ARR7 é construído para aplicações didáticas como:
 * Introdução a Lógica de Programação;
 * Introdução a Robótica;
 
-## Composição do Braçõ ARR-7
-
-O Braço ARR-7 é construido em impressora 3D usando plástico ABS de alta qualidade e virgem oferecendo assim alta resitência, ele tem seu braço dividido em:
-
-* Base
-* Braço
-* Ante-Braço
-* Garra
-
-Sendo a base capaz de girar 180 graus. 
-
-Cada articulação base-braço e braço-ante-braço são capazes de girar 90 graus.
-
-O Punho que faz a junção do ante-braço a garra é capaz de girar 180 graus, e a garra tem uma abertura de 60 graus.
-
-Assim totaliza 5 graus de liberdade (DoF) como braços industrais.
-
-O Braço como todo é movido por:
-
-* 3 x Servo motores do tipo MG996 ou MG995 (Base e Articulações)
-* 2 x Micro Servo Motores do tipo SG90 (Punho e Garra)
-
 ## Conceitos Básicos
 
 Para ter sucesso no uso de qualquer Braço Robótico, mesmo que inferior, é preciso o domínio de alguns conceitos fundamentáis, como o que é Tensão, Corrente, módulos básicos e um pouco de programação.
@@ -70,6 +48,6 @@ A nossa oficina visa apresentar práticas para uso do ARR-7 como ferramenta de e
 # Fontes de referências:
 
 * http://arduinominas.com
-* http://carlosdelfino.eti
+* http://carlosdelfino.eti.br
 * https://www.automacaoarr.com.br/online-store/Bra%C3%A7o-Rob%C3%B3tico-ARR7-p105424176
 * https://howtomechatronics.com/tutorials/arduino/diy-arduino-robot-arm-with-smartphone-control/

@@ -1,0 +1,6 @@
+[submodule "libraries/PCA9685-Arduino"]
+	path = libraries/PCA9685-Arduino
+	url = https://github.com/ArduinoMinas/PCA9685-Arduino.git
+[submodule "libraries/VarSpeedServo"]
+	path = libraries/VarSpeedServo
+	url = https://github.com/arduinominas/VarSpeedServo.git

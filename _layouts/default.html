@@ -18,18 +18,18 @@
 
       <header>
         <h1>{{ site.title | default: site.github.repository_name }}</h1>
-        <p>{{ site.description | default: site.github.project_tagline }}</p>
+        <p>{{ page.excerpt | default: page.description | default: site.description | default: site.github.project_tagline }}</p>
       </header>
 
       <div id="banner">
         <span id="logo"></span>
-
         <!--<a href="{{ site.github.repository_url }}" class="button fork"><strong>View On GitHub</strong></a>-->
         <a href="./" class="button fork"><strong>Início</strong></a>
         <a href="./conceitos" class="button conceitos"><strong>Conceitos</strong></a>
         <a href="./arquitetura" class="button arquitetura"><strong>Arquitetura</strong></a>
         <a href="./mecatronica" class="button mecatronica"><strong>Mecatronica</strong></a>
         <a href="./oficina" class="button oficina"><strong>Oficina</strong></a>
+        <a href="./bibliotecas" class="button bibliotecas"><strong>Bibliotecas</strong></a>
 
 
         {% if site.show_downloads %}
@@ -48,7 +48,8 @@
         <ul></ul>
       </nav>
       <section>
-        {{ content }}
+         
+         {{ content }}
       </section>
       {% include disqus.html %}
 
