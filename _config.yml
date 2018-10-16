@@ -1,4 +1,4 @@
-theme: jekyll-theme-time-machine
+theme: jekyll-theme-leap-day
 title: Braço Robótico com Arduino
 tags: ARM, Kinematic, IK, FK, Robótica, Braço Robótico, Matrix, Franklin, Teormea, Geoposicionamento, Lei dos Cosenos, ArcTangente, ArcCosseno, ArcSeno
 description: Apresentanmos nesta página informações de como construir projetos usando um braço róbotico com duas articulações, além do movimento giratório da Garra e sobre seu próprio eixo.
