@@ -1,4 +1,56 @@
 theme: jekyll-theme-leap-day
 title: Braço Robótico com Arduino
-tags: ARM, Kinematic, IK, FK, Robótica, Braço Robótico, Matrix, Franklin, Teormea, Geoposicionamento, Lei dos Cosenos, ArcTangente, ArcCosseno, ArcSeno
+keywords: ARM, Kinematic, IK, FK, Robótica, Braço Robótico, Matrix, Franklin, Teormea, Geoposicionamento, Lei dos Cosenos, ArcTangente, ArcCosseno, ArcSeno
 description: Apresentanmos nesta página informações de como construir projetos usando um braço róbotico com duas articulações, além do movimento giratório da Garra e sobre seu próprio eixo.
+
+show_downloads: false
+repository: ArduinoMinas/ArduinoRobotArm
+
+github:
+  zip_url: ""
+
+google_analytics: "UA-21710445-1"
+
+locale: "pt_BR"
+lang: "pt_BR"
+charset: "utf-8"
+encoding: "utf-8"
+
+disqus:
+   shortname: arduinorobotarm
+
+plugins: 
+ - "jekyll-github-metadata"
+ - "jekyll-redirect-from"
+ - "jekyll-seo-tag"
+ - 'jekyll-feed'
+ - 'jekyll-sitemap'
+ - 'jekyll-theme-leap-day'
+ - "jekyll-remote-theme"
+ - "kramdown"
+ - "liquid"
+
+# Archives
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layout: archive
+  permalinks:
+    category: '/:name/'
+    tag: '/tag/:name/'
+    
+# Other
+markdown: kramdown
+highlighter: rouge
+excerpt_separator: <!--more-->
+
+exclude: 
+  - .env
+  - .git
+  - mobile
+  - src
+  - Gemfile
+  - Gemfile.lock
+  - /assets/images/logo.xcf
+  - /assets/images/react_redux.xcf
