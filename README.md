@@ -38,42 +38,18 @@ O Braço como todo é movido por:
 
 Para ter sucesso no uso de qualquer Braço Robótico, mesmo que inferior, é preciso o domínio em alguns conceitos fundamentáis, como o que é Tensão, Corrente, Torque, Graus de Liberdade (DoF) e alguns conceitos e formulas ligadas a Trigonometria, módulos básicos, tipos de motores, um pouco de programação.
 
-## O que é Tensão e Corrente
-
-## O que é Torque
-
-## O que é Graus de Liberdade (DoF)
-
-## Conceitos Básicos de Trignometria
-
-## Arduino e Módulos Básicos
-
-## Típos de Motores
-
-## A programação.
-
-Não será possível entrar em detalhes sobre o que se precisa aprender de programação aqui, pois não é nosso objetivo aqui apresentar os conceitos mínimos necessário, espera-se que o usuário já tenha conhecimento básico de programação com o Arduino, por exemplo seja capaz de instalar uma nova biblioteca, comunicar via serial, usar a função setup() e loop(), criar novas funções simples, usar as funções das bibliotecas instaladas.
-
-Não usaremos nenhum recurso avançado do Arduino aqui, todos os recursos são básicos e no caso da funções intermediário.
+[Clique aqui para ler um pouco sobre Conceitos Básicos](conceitos.md)
 
 ## Características Mecanicas e Elétricas
 
-## Motores da Base e Articulações
+[Clique aqui para ler mais sobre as caracteristicas elétricas](eletrica.md)
 
-## Motores do Punho e Garra
+## Nossas Oficinas
 
-### Tensão e Corrente
-
-
-### Módulos necessários para nossa oficina
-
-* HC-05 Bluetooth Module
-* Arduino Board
-* Celular
-* 5V 4A DC Power Supply
+[Clique aqui para ler mais sobre a ofina](oficina.md)
 
 
-* Fontes de referências:
+# Fontes de referências:
 
 * https://www.automacaoarr.com.br/online-store/Bra%C3%A7o-Rob%C3%B3tico-ARR7-p105424176
 * https://howtomechatronics.com/tutorials/arduino/diy-arduino-robot-arm-with-smartphone-control/
