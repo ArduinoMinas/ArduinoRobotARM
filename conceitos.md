@@ -56,6 +56,8 @@ Mas tal informação é suficiente para compreendemos aproximadamente do que se 
 
 ## Arduino e Módulos Básicos
 
+![Arduino UNO](./assets/images/arduino/arduino-uno-rev3-main-board-22898-500x500.jpg)
+
 Muitos passam a conhecer o arduino depois que começam a estudar a Robótica ou a Automação em geral, e não compreendem o que é exatamente o Arduino, chegando a pensar que é um microcontrolador. É fundamental que este mal entendio seja esclarecido já nos primeiros momentos de convívio com esta tecnologia que vai de um conceito a um equipamento físico.
 
 O Arduino é a primeira vista uma placa de prototipação e uma interface de desenvolvimento, que permite ao seu usuário desenvolver de forma simplifica e rápida códigos para automação e robótica, não havendo um nicho especifico, mas sem dúvida com o objetivo principal de ser didática e barata.
