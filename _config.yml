@@ -1,7 +1,38 @@
 theme: jekyll-theme-leap-day
 title: Braço Robótico com Arduino
-keywords: ARM, Kinematic, IK, FK, Robótica, Braço Robótico, Matrix, Franklin, Teormea, Geoposicionamento, Lei dos Cosenos, ArcTangente, ArcCosseno, ArcSeno
-description: Apresentanmos nesta página informações de como construir projetos usando um braço róbotico com duas articulações, além do movimento giratório da Garra e sobre seu próprio eixo.
+keywords: ARM, Kinematic, IK, FK, Robótica, Braço Robótico, Matrix, Franklin, Teormea, Geoposicionamento, Lei dos Cosenos, ArcTangente, ArcCosseno, ArcSeno, Torque, Kinematic, automação
+description: Apresentamos nesta página informações de como construir projetos usando um braço róbotico com duas articulações, além do movimento giratório da Garra e sobre seu próprio eixo.
+author: Carlos Delfino {consultoria@carlosdelfino.eti.br}
+
+twitter:
+  username: fullsrv
+  card: summary
+
+facebook:
+  app_id: 351518334888083
+  admins: professorcarlosdelfino
+  publisher: professorcarlosdelfino
+  uselogin: false
+  scope: [user_friends, email]
+  wellcomemsg: "Olá "
+
+social:
+  name: Carlos Delfino
+  links:
+    - https://twitter.com/fullsrv
+    - https://www.facebook.com/CursoArduinoMinas
+    - https://www.facebook.com/BasicaoDaEletronica
+    - https://www.facebook.com/professorcarlosdelfino
+    - https://www.linkedin.com/in/CarlosDelfino
+    - https://plus.google.com/+CarlosDelfino
+    - https://github.com/CarlosDelfino
+    - https://github.com/ArduinoMinas
+    - https://keybase.io/carlosdelfino
+
+webmaster_verifications:
+  google_site: 5zRTHm8LU2zXC-hlZtBJqy-wiASgu6ER5PbCu67hqcM
+  google: google37b3d9124742b7a6
+  bing: 7BDB0376D08C31133EDEDA80DC90DFEF
 
 show_downloads: false
 repository: ArduinoMinas/ArduinoRobotArm
