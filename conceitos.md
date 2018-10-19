@@ -42,6 +42,18 @@ Observe o quanto isso é importante. A tensão deve sempre ser a especificada no
 
 Fique atento, como pode ver o valor da tensão é fixo o circuito sempre irá funcionar na tensão especificada, no caso dos nossos serão 5V na sua maioria. Mas a corrente, varia conforme o funcionamento do circuito, podendo ocorrer picos, e a fonte deve ser capaz de atender a estes picos.
 
+## O que é Torque
+
+Em se tratando de engrenagens, motores e ferramentas ouvimos muito o termo **Torque** que representa a força aplicada a um ponto conforme o comprimento de uma alavanca.
+
+Quando falamos de torque em servo motores, são usadas medidas entre 1kg e 10kg, mais a frente veremos qual o Torque de cada motor que usamos, mas para um bom entendimento é importante perceber que o torque referido nos servo motores são em relação a 1cm do centro do eixo do servo motor. Assim quando na especificiação do servomotor sugere que ele tem um torque de 2,5kg que dizer que do centro de seu eixo com uma pequena alavanca de 1cm ele será capaz de elevar este peso.
+
+![Servo Motor](./assets/images/servomotor/Servo-Motor-Torque.png)
+
+Não pense que a cada cm que esta alavanca for acrescida será multplicado o peso que ele é capaz de elevar, mas isso não é prático, portanto cuidado, você não irá conseguir levantar 1 tonelada com um braço de 50cm, já que neste calculo incluiem o peso do braço, o material no qual ele é fabricado e toda a estrutura de suporte do motor.
+
+Mas tal informação é suficiente para compreendemos aproximadamente do que se trata o Torque, qual a capacidade do motor e mover algum outro objeto.
+
 ## Arduino e Módulos Básicos
 
 Muitos passam a conhecer o arduino depois que começam a estudar a Robótica ou a Automação em geral, e não compreendem o que é exatamente o Arduino, chegando a pensar que é um microcontrolador. É fundamental que este mal entendio seja esclarecido já nos primeiros momentos de convivio com esta técnóligia que vai de um conceito a um equipamento fisico.
@@ -86,12 +98,52 @@ Tanto como no computador como nos microcontroladores oque define seu poder compu
 
 Os Microcontroladores possuem arquiteturas que lhe permitem ser mais economicos na energia ou então terem um maior poder computacional matemático, muitas vezes tal arquitetura não impedem os mesmos de fazerem as mesmas tarefas, mas demaram ou mais energia ou mais tempo, tornando seu uso inviálvel.
 
-Por hora é importante sabermos que o Arduino UNO utiliza um microcontrolador de 8bits que nos tmepos atuais pode parecer pouco, mas não hé diante de sua aplicação, lembrando que foi um microcontrolador de tecnolgia inferior que levou o homem a lua e o colcou em orbita várias vezes. 
-
+>> Por hora é importante sabermos que o Arduino UNO utiliza um microcontrolador de 8bits que nos tmepos atuais pode parecer pouco, mas não hé diante de sua aplicação, lembrando que foi um microcontrolador de tecnolgia inferior que levou o homem a lua e o colcou em orbita várias vezes. 
 >> Portanto o Arduino é um grande instrumento em suas mãos, e seu domínio pode lhe render grandes projetos.
+
+## Servo Motores
+
+Na robótica o que mais é utilizado são motores, porém tais motores tem caractisticas bastante especiais.
+
+A Primeira característica é que são motores de precisão, eles permitem que fácilmente controle seu giro no sentido horário ou antihorário. 
+
+Alguns são motores comuns sem escova, que através do sentido da corrente em suas bobinas eles giram no sentido desejado e conforme a intensidade desta corrente controla-se sua velocidade.
+
+Outros são motores que também usam bobinas, mas estas são dispostas em uma forma alternada para que conforme a sequência de pulsos promovam o movimento do motor na direção desejada, e a velocidade dos pulsos determina tambéma velocidade no qual o motor gira.
+
+![Servo Motor](./assets/images/servomotor/Servo-Motor.jpg)
+
+Porem não é possível identificar exatamente em qual posição o motor se encontra, para isso foram criados os **Servo Motores**, são na verdade um conjunto que engloba:
+
+* Motor
+* Engrenagem
+* Sensores
+* microcontrolador
+* Circuito alimentado
+
+Os Servo Motores, possuem no seu conjunto um microcontrolador que é especialmente programado para controlar o circuito de alimentação e consequentemente o motor, observando seu giro através de sensores.
+
+Os Servo Motores mais simples como os que usaremos usam um potênciometro para identificar a posição do motor, portanto como potênciometros comuns não fazem um giro completo, na sua maioria não é possível ter um servo motor que gire mais que 300 graus, boa parte deles é limitado a 180 graus. O monitoramento do potenciometro como sensor de posição e o devido acionamento do motor de forma demporizada forma o que chamamos de **Loop Fechado*.
+
+As engrenagens que compoêm o servo motor permitem que se tenha um Torque ideal para seu tamanho, convertendo assim velocidade de giro do motor em força para que suporte a mecânica do Robot, em nosso caso o braço. a Engrenagem também permite que se tenha maior precisão do posicionamento do giro do Servo Motor, já que o motor precisa dar diversas voltas em seu eixo para que o eixo final do **servo motor** atinja a posição desejada.
+
+Os servomotores são fácilmente conectados ao Arduino, para tal é preciso apenas 3 fios, sendo dois para alimentação e um para controle.
+
+![Servo Motor](./assets/images/servomotor/Servo-Motor-Wires.png)
+
+É importante saber que nenhuma das portas do Arduino é capaz de alimentar um Servo motor, portanto é preciso que se tenha uma fonte externa de alimentação especifica para o motor. Conforme o tamanho e torque do Servo Motor este irá drenar uma certa corrente mesmo que todos sejam alimentados na mesma tensão de 5V. Mais a diante iremos ver detalhes de cada servo motor.
+
+A placa do Arduino deverá ser responsável apenas por controlar o servo motor, portanto apenas o pino de controle deve ser ligado a uma das portas digitais do mesmo.
+
 
 ## A programação
 
-Não será possível entrar em detalhes sobre o que se precisa aprender de programação aqui, pois não é nosso objetivo aqui apresentar os conceitos mínimos necessário, espera-se que o usuário já tenha conhecimento básico de programação com o Arduino, por exemplo seja capaz de instalar uma nova biblioteca, comunicar via serial, usar a função setup() e loop(), criar novas funções simples, usar as funções das bibliotecas instaladas.
+Não será possível entrar em detalhes sobre o que se precisa aprender de programação aqui, pois não é nosso objetivo  apresentar os conceitos mínimos necessário, espera-se que o usuário já tenha conhecimento básico de programação com o Arduino, por exemplo seja capaz de instalar uma nova biblioteca, comunicar via serial, usar a função `setup()` e `loop()`, criar novas funções simples, usar as funções das bibliotecas instaladas.
 
-Não usaremos nenhum recurso avançado do Arduino aqui, todos os recursos são básicos e no caso da funções intermediário.
+Não usaremos nenhum recurso avançado do Arduino, todos os recursos são básicos e no caso das bibliotecas e funções intermediário.
+
+Também não usaremos interrupções, mas será preciso compreender bem a estrutura de um código orientado ao tempo ou fatiamento deste, já que não há como produzir códigos, neste nível de conhecimento, que permita a execução em paralelo ou que simule ta execução.
+
+Usaremos em nossos códigos de forma exaustiva estruturas de controle do tipo `if/else` e `switch`, podendo também usarmos estruturas de loop `for` e `while`, porém a biblioteca **VarSpeedServo** já reduz bastante o código que anteriormente precisava para simular diferentes velocidades.
+
+Vejamos agora um pouco sobre [Mecatrônica, clique aqui.](./mecatronica.md)
