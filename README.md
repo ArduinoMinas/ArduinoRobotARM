@@ -2,6 +2,10 @@
 
 O objetivo desta página é apresentar anotações conforme se construo o conhecimento relativos aos estudos para oficinas (Workshops) com o [Braço Robotico ARR-7](https://www.automacaoarr.com.br/online-store/Bra%C3%A7o-Rob%C3%B3tico-ARR7-p105424176) da Empresa [Automação ARR](https://www.automacaoarr.com.br). 
 
+<!--more-->
+
+![Braço ARR-7](./assets/images/braco-arr7-img-2.jpeg "Braço ARR-7")
+
 O Braço Robótico ARR7 é construido pelos engenheiros da ARR Automação, composto por peças plátiscas construidas em impressora 3D usando plásticos virgens de alta qualidade e cores vibrantes.
 
 O Braço Robótico ARR7 é construído para aplicações didáticas como:

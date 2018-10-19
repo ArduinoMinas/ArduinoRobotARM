@@ -82,6 +82,8 @@ O Arduino através de sua disposição de pinos oferece um formato de conexão q
 
 Muitas vezes os Shields anulam os pinos que não poderão ser reaproveitados evitando assim conflitos.
 
+![Módulo PCA9685](./assets/images/shields/adafruit_products_AllServos_bb-1024.jpg "Módulo PCA9685")
+
 Outros Shields como um que usaremos para dar acesso a portas digitais em um formato adequado para os motores usados no braço robótico não permite o encaixe de novos shields já que reformatam as conexões para uso final.
 
 Em nosso projetos usaremos apenas dois tipos de Shields e módulos na fase inicial, o Shield para Servo Motores, e o Shield/Modulo que possibilita a concentração (multiplexação) de mais de uma dezena de motores em um barramento chamado I2C. Veremos detalhes quando for a hora.
