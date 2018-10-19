@@ -4,3 +4,6 @@
 [submodule "libraries/VarSpeedServo"]
 	path = libraries/VarSpeedServo
 	url = https://github.com/arduinominas/VarSpeedServo.git
+[submodule "libraries/Servo"]
+	path = libraries/Servo
+	url = https://github.com/ArduinoMinas/Servo.git
