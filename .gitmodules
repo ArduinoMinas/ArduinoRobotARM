@@ -7,3 +7,6 @@
 [submodule "libraries/Servo"]
 	path = libraries/Servo
 	url = https://github.com/ArduinoMinas/Servo.git
+[submodule "libraries/johnny-five"]
+	path = libraries/johnny-five
+	url = https://github.com/rwaldron/johnny-five.git

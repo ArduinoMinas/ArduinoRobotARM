@@ -24,7 +24,7 @@ Mas tal informação é suficiente para compreendemos aproximadamente do que se 
 
 ## O que é Graus de Liberdade (DoF)
 
-## Conceitos Básicos de Trignometria
+## Conceitos Básicos de Trigonometria
 
 ## Tipos de Motores
 
@@ -64,3 +64,6 @@ A placa do Arduino deverá ser responsável apenas por controlar o servo motor, 
 
 
 
+### Fontes
+
+* https://appliedgo.net/roboticarm/
