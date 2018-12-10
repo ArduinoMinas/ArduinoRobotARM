@@ -18,7 +18,7 @@ Quando falamos de torque em servo motores, são usadas medidas entre 1kg e 10kg,
 
 ![Servo Motor](./assets/images/servomotor/Servo-Motor-Torque.png)
 
-Não pense que a cada cm que esta alavanca for acrescida será multiplicado o peso que ele é capaz de elevar, mas isso não é prático, portanto cuidado, você não irá conseguir levantar 1 tonelada com um braço de 50cm, já que neste calculo incluem o peso do braço, o material no qual ele é fabricado e toda a estrutura de suporte do motor.
+Perceba que quanto maior o breaço, ou seja mais distânte do centro do eixo do motor, menor será o peso capaz de ser levantado.
 
 Mas tal informação é suficiente para compreendemos aproximadamente do que se trata o Torque, qual a capacidade do motor e mover algum outro objeto.
 
