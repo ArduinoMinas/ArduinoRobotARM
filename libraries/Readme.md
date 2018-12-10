@@ -27,6 +27,6 @@ Biblioteca padrão para controle de servo motores no Arduino.
 
 # ROS
 
-Como instalar o ROS pode ser visto em ["Robot Operate System - ROS - Instalando no Windows 10"]({{ "/ros" | absolute_url })
+Como instalar o ROS pode ser visto em ["Robot Operate System - ROS - Instalando no Windows 10"]({{ "/ros" | absolute_url }})
 
 ## ROSSerial
