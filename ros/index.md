@@ -7,7 +7,11 @@ Que tal ter uma interface de projetos e desenvolvimento de robôs totalmente esc
 
 O [Robot Operate System \(ROS\)](http://www.ros.org/about-ros/) é um sistema completo para planejamento e controle de robôs que facilita o trabalho com robôs de forma educacional e colaborativa.
 
-O ROS tem a possibilidde de lidar com uma centena de graus de liberdade.
+<!--more-->
+
+Este tutorial foi baseado totalmente no trabalho de Jan Bernlöhr que encontrado em [https://janbernloehr.de/2017/06/10/ros-windows](https://janbernloehr.de/2017/06/10/ros-windows) entre outros sites.
+
+O ROS tem a possibilidade de lidar com uma centena de graus de liberdade.
 
 Veremos neste artigo como instalar o ROS no Windows 10 usando o WSL com a distrito Ubuntu, o que permitirá o aprendizado ser reaproveitado também na mesma distribuição do Linux.
 
@@ -151,8 +155,11 @@ Jà com os pacotes necessários instalados, e certos que não ouve erro algum, p
 sudo rosdep init
 rosdep update
 ```
+----
 
 __Atenção:__ Os dois comandos acima apenas o que indica para `init` deve ser executado como root usando `sudo`. Caso execute o segundo comando `rosdep update` com `sudo` você deve reverter o processando executando o comando `sudo rosdep fix-permissions` e repetindo logo em seguida o comando `rosdep update`.
+
+----
 
 ## Inicializando o ROS
 
@@ -168,12 +175,24 @@ $ source /opt/ros/lunar/setup.bash
 
 Com este comando, o ambiente de variáveis de seu linux-wls foi ajustado de forma temporária para que execute o ROS sem problemas.
 
+----
+
+__Lembre-se:__ para cada terminal bash do WSL que abrir você deve executar este comando, ou então deve coloca-lo para ser executado automáticamente no `.bashrc` com o seguinte comando: 
+
+```
+echo "source /opt/ros/lunar/setup.bash" >> ~/.bashrc
+```
+---- 
+
 ## Dependências para construção de pacotes e projetos
 
 Para você poder desenvolver seus próprios pacotes use as seguintes dependências que são fornecidas separadamente.
 
 ```
 sudo apt-get install python-rosinstall python-rosinstall-generator python-wstool build-essential
+```
+
+Tenha paciência, vai precisar de internet e são muitos pacotes.
 
 ## Alguns detalhes sobre o WSL e a estrutura de diretório.
 
@@ -197,10 +216,65 @@ Antes de tudo para facilitar meu trabalho eu criei um Link Simbólico, é um cam
 ln -s /mnt/c/Users/Admin/workspace/ArduinoMinas/ArduinoRobotARM/ros ros
 ```
 
+Lembre-se que se você acabou de abrir um novo terminal e não automatizou a configuração do ambiente como sugerido acima, você deve executar o comando: `source /opt/ros/lunar/setup.bash`, faça isso neste caso par cada terminal aberto, não irei lembra-lo disso mais.
 
+Execute agora o comando `roscore` para inicializar o serviço principal do ROS.
 
+### Criando o Publisher
 
+Abra uma nova janela de temrinal do bash e crie o arquivo `publish.py` e grave o seguinte conteúdo nele:
+
+```
+#!/usr/bin/env python
+import rospy
+from std_msgs.msg import String
+   
+pub = rospy.Publisher('chatter', String, queue_size=None)
+rospy.init_node('demo_pub_node')
+r = rospy.Rate(1) # 10hz
+while not rospy.is_shutdown():
+   pub.publish("hello world")
+   print('sending data...')
+   r.sleep()
+```
+
+Execute o arquivo com o python usando o seguinte comando: `python publish.py`
+
+Se receber algum erro dizendo por exemplo que não achou o pacote `rospy` é bem provável que seja porque esqueceu de executar o script setup como sugerido acima.
+
+### Criando um Subscriber
+
+Agora vamos escrever o script que irá receber as mensagens acima, crie o arquivo `subscribe.py` e grave nele o seguinte código:
+
+```
+#!/usr/bin/env python
+import rospy
+from std_msgs.msg import String
+   
+def callback(data):
+    rospy.loginfo("I heard %s",data.data)
+   
+def listener():
+    rospy.init_node('demo_sub_node')
+    rospy.Subscriber("chatter", String, callback)
+    # spin() simply keeps python from exiting until this node is stopped
+    rospy.spin()
+   
+listener()
+```
+
+Execute da mesma forma o subscriber usando agora o comando `python subscriber.py`, você verá em breve as mensagens indicando que está recebendo mensagens, que são envidadas pelo *publish.py*.
+
+## Conclusão
+
+Como pode ver o ROS é um sistema distribuido que permite troca de mensagens entre processos de forma muito simples, por hora dependendo de sua experiência como programador isso pode ser muito simples e pode ter ficado frustrado com este tutorial.
+
+Mas nosso objetivo aqui é sinceramente apresentar a instalação do ROS, e testa-la, se você teve sucesso com estes primeiro script tudo indica que sua instalação foi um sucesso.
+
+Veremos agora o próximo tutorial que é a instalação da parte gráfica do ROS, [clique aqui para isso]({{ "/ros/xwing" | absolute_url }}).
 
 ## Fontes
 
+* https://janbernloehr.de/2017/06/10/ros-windows
 * https://blogs.msdn.microsoft.com/commandline/2016/11/17/do-not-change-linux-files-using-windows-apps-and-tools/
+* http://wiki.ros.org/rospy
