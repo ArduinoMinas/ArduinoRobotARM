@@ -271,10 +271,11 @@ Como pode ver o ROS é um sistema distribuido que permite troca de mensagens ent
 
 Mas nosso objetivo aqui é sinceramente apresentar a instalação do ROS, e testa-la, se você teve sucesso com estes primeiro script tudo indica que sua instalação foi um sucesso.
 
-Veremos agora o próximo tutorial que é a instalação da parte gráfica do ROS, [clique aqui para isso]({{ "/ros/xwing" | absolute_url }}).
+Veremos agora o próximo tutorial que é a instalação da parte gráfica do ROS, [clique aqui para isso]({{ "/ros/xwindows" | absolute_url }}).
 
 ## Fontes
 
 * https://janbernloehr.de/2017/06/10/ros-windows
 * https://blogs.msdn.microsoft.com/commandline/2016/11/17/do-not-change-linux-files-using-windows-apps-and-tools/
 * http://wiki.ros.org/rospy
+* http://wiki.ros.org/rospy_tutorials/Tutorials/WritingPublisherSubscriber
