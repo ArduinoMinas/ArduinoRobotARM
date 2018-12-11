@@ -82,7 +82,7 @@ sudo sh -c '. /etc/lsb-release && echo "deb http://ros.fei.edu.br/archive-ros/pa
 então atualizamos as chaves de segurança para que se tenha certeza que tudo está baixando corretamente e não seja de origem duvidosa.
 
 ```
-sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 5523BAEEB01FA116
+sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 0x421c365bd9ff1f717815a3895523baeeb01fa116 
 ```
 
 Outra opções para o servidor de chaves são hkp://pgp.mit.edu:80 ou hkp://keyserver.ubuntu.com:80.
@@ -94,7 +94,7 @@ __Atenção:__ caso o comando acima dê algum erro, tipo _failed: IPC connect ca
 ```
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: SKS 1.1.6
-Comment: Hostname: keyserver.ubuntu.com
+Comment: Hostname: keys2.kfwebs.net
 
 mQGiBEsy5KkRBADJbDSISoamRM5AA20bfAeBuhhaI+VaiCVcxw90sq9AI5lIc42FWzM2acm8
 yplqWiehAqOLKd+iIrqNGZ+VavZEPTx7o06UZUMRoPBiTFaCwrQ5avKzlt7ij8PRMVWNrJ7A
@@ -140,10 +140,10 @@ sudo apt-get update
 E finalmente o primeiro passo para realmente instalar o ROS, veja que temos diversos pacotes disponíveis, e usaremos o mais completo aqui, assim iremos instalar o pacote *full*:
 
 ```
-sudo apt-get install -y ros-lunar-desktop-full
+sudo apt-get install -y ros-melodic-desktop-full
 ```
 
-Este pacote exige muitas dependências e leva um tempo consideral, além de exigir bastante espaço, mais que 655MB.
+Este pacote exige muitas dependências e leva um tempo consideral, além de exigir bastante espaço, mais que 2.8GB.
 
 Jà com os pacotes necessários instalados, e certos que não ouve erro algum, precisamos inicializar o ROS com suas dependências, assim digitamos os dois comandos abaixo:
 
@@ -154,6 +154,7 @@ rosdep update
 
 __Atenção:__ Os dois comandos acima apenas o que indica para `init` deve ser executado como root usando `sudo`. Caso execute o segundo comando `rosdep update` com `sudo` você deve reverter o processando executando o comando `sudo rosdep fix-permissions` e repetindo logo em seguida o comando `rosdep update`.
 
+
 ## Inicializando o ROS
 
 Você pode inicializar o ROS de duas formas, uma mais automática onde sempre que abrir o Unbutu WSL ele estará pronto para executa-lo outra de form manual, vou usar a forma manual, pois podemos ter mais de uma versão do ROS instalada e não teremos conflitos.
@@ -163,44 +164,15 @@ Quando o ROS é instalado como sugerido aqui, ele é colocado no diretório `/op
 O Comando `source` executa o conteúdo do arquivo informado, mesmo que este não esteja setado para execução:
 
 ```
-$ source /opt/ros/lunar/setup.bash
+$ source /opt/ros/melodic/setup.bash
 ```
 
 Com este comando, o ambiente de variáveis de seu linux-wls foi ajustado de forma temporária para que execute o ROS sem problemas.
 
-## Dependências para construção de pacotes e projetos
+## Dependências para construção de pacotes
 
 Para você poder desenvolver seus próprios pacotes use as seguintes dependências que são fornecidas separadamente.
 
 ```
 sudo apt-get install python-rosinstall python-rosinstall-generator python-wstool build-essential
-
-## Alguns detalhes sobre o WSL e a estrutura de diretório.
-
-Cada distribuição Linux tem suas peculiaridades, mas todos sabem que a estrutura de diretório do linux é padrão principalmente quando as principais pastas:
-
-* usr
-* bin
-* sbin
-* home
-* etc
-
-Porém onde ficam estas pastas pode ser algo chato no WSL, no caso do Ubuntu ela estará em um caminho similar a este, observe que se tiver mais de uma versão Ubuntu instalada este caminho irá mudar além da string aleatória que compôem o nome pode vir a ser diferente, portanto navegue pasta a pasta para encontra-lo e ajuste conforme sua instalação: `C:\Users\Admin\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs`
-
-Mas quando dentro do WSL onde encontrar o meu drive `C`? É uma forma estranha pois mesmo estando dentro dele preciso seguir um caminho especial para achar as pastas do Windows para isso basta entrar no `bash` e digitar `cd \mnt\c` e pronto, podemos lidar com os nosso aquivos, inclusive a pasta do usuário do windows que estará em `\mnt\c\Users\Admin`, lembre-se que no Linux é diferenciado maiúsculas de minúsculas.
-
-## Primeiros passos com o ROS
-
-Antes de tudo para facilitar meu trabalho eu criei um Link Simbólico, é um caminho virtual para a pasta orignal onde eu guardo meus projetos, e no caso do ROS está dentro da pasta de mesmo nome junto com os arquivos da página onde guardo as anotações sobre Braços Robóticos, para isso eu usei o comando:
-
 ```
-ln -s /mnt/c/Users/Admin/workspace/ArduinoMinas/ArduinoRobotARM/ros ros
-```
-
-
-
-
-
-## Fontes
-
-* https://blogs.msdn.microsoft.com/commandline/2016/11/17/do-not-change-linux-files-using-windows-apps-and-tools/
