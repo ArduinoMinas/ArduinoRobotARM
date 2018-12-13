@@ -49,6 +49,28 @@ E finalmente na janela a esquerda inferior digite o comando `rosrun turtlesim tu
 
 ![Executando o ROS TortleSim]({{ "/assets/images/ros/logo/executando_logo_primeira_vez.gif" | absolute_url}})
 
+## Dicas para acelerar o xwindows
+
+### OpenGL indirection
+
+Alguns lugares recomendam forçar rederização indireta usetando a variável `LIBGL_ALWAYS_INDIRECT` para obter uma performance no WSL. Porém, alguns dizem que com algumas versões do Xming é possível que o **rviz** pode não funcionar. 
+
+Com o Gazebo eu tive problemas ao usar esta opção portanto para começar procure evitar usa-lo. sendo assim use da seguinte forma:
+
+```
+export LIBGL_ALWAYS_INDIRECT=0
+```
+
+### D-Bus machine-id missing
+
+A Biblioteca D-Bus aparenta ser configurada incorretamente; falhando a leitura do UUID da máquina: O arquivo `/etc/machine-id` deve contar uma stringe hexadecimal de comprimento igual a 32 caracteres, nenhum outro texto. Para corrigir tal erro execute o comando:
+
+```
+sudo dbus-uuidgen --ensure
+```
+
+Depois disso reinicie o `roscore`.
+
 ## Conclusão
 
 Como podem ver o uso de interface gráfica no ROS é bem simples, estes são apenas os primeiros passos para tal avanço, e uma leitura mais aprofundada no material didático do site poderão abrir grandes portas no horizonte.
@@ -57,8 +79,11 @@ Outra questão interessante é que como o ROS permite o projeto ser dividido fá
 
 você pode escrever este código em Python se preferir, ou mesmo adapta-lo para que a tartaruga reflita o movimento de um carrinho seguidor de linha feito com Arduino, recebendo assim remotamente os comandos via *ROSSerial*, ou se está usando o braço Robótico quem sabe a tartaruga reflita o movimento do braço e vice versa?
 
+o próximo tutorial é a instalação de nosso simulador, [clicando aqui.]({{ "/ros/gazebo" | absoulte_url }}).
+
 
 ## Referências
 
+* https://research.wmz.ninja/articles/2017/11/setting-up-wsl-with-graphics-and-audio.html
 * https://janbernloehr.de/2017/06/10/ros-windows
 * https://sourceforge.net/projects/xming

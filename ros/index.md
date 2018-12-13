@@ -1,17 +1,16 @@
 ---
-title: Robot Operate System - ROS - Instalando no Windows 10
+title: Robot Operate System - ROS (Kinetic)- Instalando no Windows 10
 teaser: ros/logo-696x418.png
 ---
 
-Que tal ter uma interface de projetos e desenvolvimento de robôs totalmente escalável e robusto e que permita o desenvolvimento de soluções de forma colaborativa? é isso é so o começo.
+Que tal ter uma interface de projetos e desenvolvimento de robôs totalmente escalável e robusto, que permita o desenvolvimento de soluções de forma colaborativa, melhor ainda um Sistema Operacional para Robos? 
 
-O [Robot Operate System \(ROS\)](http://www.ros.org/about-ros/) é um sistema completo para planejamento e controle de robôs que facilita o trabalho com robôs de forma educacional e colaborativa.
-
+é, isso é so o começo.
 <!--more-->
 
-Este tutorial foi baseado totalmente no trabalho de Jan Bernlöhr que encontrado em [https://janbernloehr.de/2017/06/10/ros-windows](https://janbernloehr.de/2017/06/10/ros-windows) entre outros sites.
+O [Robot Operate System \(ROS\)](http://www.ros.org/about-ros/) é um sistema completo para planejamento, simulação, testes e controle de robôs de todos os tipos que facilita o trabalho de forma educacional e colaborativa.
 
-O ROS tem a possibilidade de lidar com uma centena de graus de liberdade.
+Com o ROS temos a possibilidade de lidar com uma centena de graus de liberdade, o que abre bastante o leque de possibilidades para lidar e projetar Robôs, e o mais interessante permite que isso seja feito de forma distribuída,usando diversos computadores de forma especializada.
 
 Veremos neste artigo como instalar o ROS no Windows 10 usando o WSL com a distrito Ubuntu, o que permitirá o aprendizado ser reaproveitado também na mesma distribuição do Linux.
 
@@ -27,18 +26,11 @@ c:\> Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsys
 
 Ao termino do comando lhe será consultado se deseja reinicializar o Windows, o que deve ser feito.
 
-Agora você precisa baixar a imagem Linux que deseja usar, no meu caso eu optei pela Ubuntu, mas existe as seguintes que podem ser usadas, veja que logo após o nome segue o link para uso no comando de download via PowerShell, os arquivos são um pouco maiores que 200MB:
+Agora você precisa baixar a imagem Linux que deseja usar,  o arquivos é um pouco maior que 200MB:
 
- * Ubuntu 18.04 (bionic) - https://aka.ms/wsl-ubuntu-1804
- * Ubuntu 16.04 - https://aka.ms/wsl-ubuntu-1804
- * Ubuntu 18.04 ARM - https://aka.ms/wsl-ubuntu-1804-arm
  * Ubuntu 16.04 - https://aka.ms/wsl-ubuntu-1604
- * Debian GNU/Linux - https://aka.ms/wsl-debian-gnulinux
- * Kali Linux - https://aka.ms/wsl-kali-linux
- * OpenSUSE - https://aka.ms/wsl-opensuse-42
- * SLES - https://aka.ms/wsl-sles-12 
 
-Na lista acima você pode escolher a distro que deseja usar e substitua o link após o URI no comando abaixo, mas o correto é usar a Ubuntu 16.04 (xenial) que é 100% compátivel com o ROS na atua de escrita deste artigo.
+Usaremos a Distribuição Ubuntu 16.04 (xenial) que é 100% compatível com o ROS na data de escrita deste artigo, e amplamente usada na internet, além de ser bem simples a migração para distribuiçoes mais atuais.
 
 ```
 Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1604 -OutFile Ubuntu.appx -UseBasicParsing
@@ -80,13 +72,12 @@ Primeiro vamos atualizar as fontes de pacotes:
 
 ```
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
-sudo sh -c '. /etc/lsb-release && echo "deb http://ros.fei.edu.br/archive-ros/packages.ros.org/ros/ubuntu $DISTRIB_CODENAME main" >> /etc/apt/sources.list.d/ros-latest.list'
 ```
 
-então atualizamos as chaves de segurança para que se tenha certeza que tudo está baixando corretamente e não seja de origem duvidosa.
+Então atualizamos as chaves de segurança para que se tenha certeza que tudo está baixando corretamente e não seja de origem duvidosa.
 
 ```
-sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 5523BAEEB01FA116
+sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 0x421c365bd9ff1f717815a3895523baeeb01fa116 
 ```
 
 Outra opções para o servidor de chaves são hkp://pgp.mit.edu:80 ou hkp://keyserver.ubuntu.com:80.
@@ -98,7 +89,7 @@ __Atenção:__ caso o comando acima dê algum erro, tipo _failed: IPC connect ca
 ```
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: SKS 1.1.6
-Comment: Hostname: keyserver.ubuntu.com
+Comment: Hostname: keys2.kfwebs.net
 
 mQGiBEsy5KkRBADJbDSISoamRM5AA20bfAeBuhhaI+VaiCVcxw90sq9AI5lIc42FWzM2acm8
 yplqWiehAqOLKd+iIrqNGZ+VavZEPTx7o06UZUMRoPBiTFaCwrQ5avKzlt7ij8PRMVWNrJ7A
@@ -144,10 +135,10 @@ sudo apt-get update
 E finalmente o primeiro passo para realmente instalar o ROS, veja que temos diversos pacotes disponíveis, e usaremos o mais completo aqui, assim iremos instalar o pacote *full*:
 
 ```
-sudo apt-get install -y ros-lunar-desktop-full
+sudo apt-get install -y ros-kinetic-desktop-full
 ```
 
-Este pacote exige muitas dependências e leva um tempo consideral, além de exigir bastante espaço, mais que 655MB.
+Este pacote exige muitas dependências e leva um tempo considerável, além de exigir bastante espaço, mais que 2.8GB.
 
 Jà com os pacotes necessários instalados, e certos que não ouve erro algum, precisamos inicializar o ROS com suas dependências, assim digitamos os dois comandos abaixo:
 
@@ -155,11 +146,9 @@ Jà com os pacotes necessários instalados, e certos que não ouve erro algum, p
 sudo rosdep init
 rosdep update
 ```
-----
 
 __Atenção:__ Os dois comandos acima apenas o que indica para `init` deve ser executado como root usando `sudo`. Caso execute o segundo comando `rosdep update` com `sudo` você deve reverter o processando executando o comando `sudo rosdep fix-permissions` e repetindo logo em seguida o comando `rosdep update`.
 
-----
 
 ## Inicializando o ROS
 
@@ -170,21 +159,12 @@ Quando o ROS é instalado como sugerido aqui, ele é colocado no diretório `/op
 O Comando `source` executa o conteúdo do arquivo informado, mesmo que este não esteja setado para execução:
 
 ```
-$ source /opt/ros/lunar/setup.bash
-```
+$ source /opt/ros/kinetic/setup.bash
+``` 
 
 Com este comando, o ambiente de variáveis de seu linux-wls foi ajustado de forma temporária para que execute o ROS sem problemas.
 
-----
-
-__Lembre-se:__ para cada terminal bash do WSL que abrir você deve executar este comando, ou então deve coloca-lo para ser executado automáticamente no `.bashrc` com o seguinte comando: 
-
-```
-echo "source /opt/ros/lunar/setup.bash" >> ~/.bashrc
-```
----- 
-
-## Dependências para construção de pacotes e projetos
+## Dependências para construção de pacotes
 
 Para você poder desenvolver seus próprios pacotes use as seguintes dependências que são fornecidas separadamente.
 
@@ -210,19 +190,33 @@ Mas quando dentro do WSL onde encontrar o meu drive `C`? É uma forma estranha p
 
 ## Primeiros passos com o ROS
 
-Antes de tudo para facilitar meu trabalho eu criei um Link Simbólico, é um caminho virtual para a pasta orignal onde eu guardo meus projetos, e no caso do ROS está dentro da pasta de mesmo nome junto com os arquivos da página onde guardo as anotações sobre Braços Robóticos, para isso eu usei o comando:
+Antes de começar a trabalhar com o ROS é importante que você crie seu Workspace para armazernar seus códigos, para facilitar nossa comunicação e entendimento dos tutoriais, usaremos o nome padrão usado nos tutoriais do ROS, quando estiver com mais experiência poderá mudar este nome, por hora vamos seguir este mesmo padrão.
+
+Lembre-se que, se você acabou de abrir um novo terminal e não automatizou a configuração do ambiente como sugerido acima, você deve executar o comando: `source /opt/ros/lunar/setup.bash`, lembre-se sempre disso, não irei lembra-lo mais.
+
+Agora crie uma pasta chamada `catkin_ws` e nela uma subpasta de nome `src`, entre nela e digite o comando `catkin_make`, este comando irá copiar os arquivos que irá precisar para desenvolver seus projetos.
 
 ```
-ln -s /mnt/c/Users/Admin/workspace/ArduinoMinas/ArduinoRobotARM/ros ros
+mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws/src
+catkin_init_workspace
+cd ~/catkin_ws
+catkin_make
+---
+
+Seu Workspace está criado e preparado para você trabalhar livremente se interferir em outros projetos que venha ater com o ROS. mas para isso efetivamente acontecer você precisa digitar um último comando:
+
+```
+source ~/catkin_ws/devel/setup.bash
 ```
 
-Lembre-se que se você acabou de abrir um novo terminal e não automatizou a configuração do ambiente como sugerido acima, você deve executar o comando: `source /opt/ros/lunar/setup.bash`, faça isso neste caso par cada terminal aberto, não irei lembra-lo disso mais.
-
-Execute agora o comando `roscore` para inicializar o serviço principal do ROS.
+Execute agora o comando `roscore` para inicializar o serviço principal do ROS, para não abrir uma nova janela você pode abrir o Ros Core em background, usando o comando `roscore &`.
 
 ### Criando o Publisher
 
-Abra uma nova janela de temrinal do bash e crie o arquivo `publish.py` e grave o seguinte conteúdo nele:
+Se preciso, abra uma nova janela de terminal do bash e entre no diretório `~/catkin_ws/src`, crie uma pasta de nome `helloworld`;
+
+Crie o arquivo `publish.py` e grave o seguinte conteúdo nele:
 
 ```
 #!/usr/bin/env python
@@ -244,7 +238,7 @@ Se receber algum erro dizendo por exemplo que não achou o pacote `rospy` é bem
 
 ### Criando um Subscriber
 
-Agora vamos escrever o script que irá receber as mensagens acima, crie o arquivo `subscribe.py` e grave nele o seguinte código:
+Agora vamos escrever o script que irá receber as mensagens acima, na mesma pasta crie o arquivo `subscribe.py` e grave nele o seguinte código:
 
 ```
 #!/usr/bin/env python
@@ -267,7 +261,7 @@ Execute da mesma forma o subscriber usando agora o comando `python subscriber.py
 
 ## Conclusão
 
-Como pode ver o ROS é um sistema distribuido que permite troca de mensagens entre processos de forma muito simples, por hora dependendo de sua experiência como programador isso pode ser muito simples e pode ter ficado frustrado com este tutorial.
+Como pode ver o ROS é um sistema distribuído que permite troca de mensagens entre processos de forma muito simples, por hora dependendo de sua experiência como programador isso pode ser muito simples e pode ter ficado frustrado com este tutorial.
 
 Mas nosso objetivo aqui é sinceramente apresentar a instalação do ROS, e testa-la, se você teve sucesso com estes primeiro script tudo indica que sua instalação foi um sucesso.
 
