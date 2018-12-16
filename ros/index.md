@@ -169,7 +169,7 @@ Com este comando, o ambiente de variáveis de seu linux-wls foi ajustado de form
 Para você poder desenvolver seus próprios pacotes use as seguintes dependências que são fornecidas separadamente.
 
 ```
-sudo apt-get install python-rosinstall python-rosinstall-generator python-wstool build-essential
+sudo apt-get install python-rosinstall python-rosinstall-generator python-wstool build-essential python-catkin-tools
 ```
 
 Tenha paciência, vai precisar de internet e são muitos pacotes.
